@@ -1,4 +1,4 @@
-import { Recipe, RecipeSortOrder, RecipeFilters } from '@/types/recipe';
+import { Recipe, RecipeSortOrder, RecipeFilters } from '../../src/types/recipe';
 
 export const recipeUtils = {
   /**

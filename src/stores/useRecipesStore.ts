@@ -1,8 +1,8 @@
 import { create } from 'zustand';
 import { persist, createJSONStorage } from 'zustand/middleware';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { Recipe, RecipeFormData } from '@/types/recipe';
-import { recipesApi } from '@/services/api/recipesApi';
+import { Recipe, RecipeFormData } from '../types/recipe';
+import { recipesApi } from '../services/api/recipesApi';
 
 interface RecipesState {
   recipes: Recipe[];

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Input } from '../ui/Input';
-import { useTheme } from '@/hooks/useTheme';
+import { useTheme } from '../../hooks/useTheme';
 
 interface MathCaptchaProps {
   onValidate: (isValid: boolean) => void;

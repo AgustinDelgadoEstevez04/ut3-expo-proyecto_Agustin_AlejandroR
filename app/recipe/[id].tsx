@@ -11,11 +11,11 @@ import {
 } from 'react-native';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useRecipesStore } from '@/stores/useRecipesStore';
-import { useTheme } from '@/hooks/useTheme';
-import { recipeUtils } from '@/utils/recipeUtils';
-import { Card } from '@/components/ui/Card';
-import { Button } from '@/components/ui/Button';
+import { useRecipesStore } from '../../src/stores/useRecipesStore';
+import { useTheme } from '../../src/hooks/useTheme';
+import { recipeUtils } from '../../src/utils/recipeUtils';
+import { Card } from '../../src/components/ui/Card';
+import { Button } from '../../src/components/ui/Button';
 
 export default function RecipeDetailScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();

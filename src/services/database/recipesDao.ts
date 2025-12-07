@@ -1,5 +1,5 @@
 import { db, STORAGE_KEYS } from './db';
-import { Recipe } from '@/types/recipe';
+import { Recipe } from '../../types/recipe';
 
 /**
  * Data Access Object para Recetas

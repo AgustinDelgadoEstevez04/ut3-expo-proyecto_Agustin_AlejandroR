@@ -5,9 +5,6 @@ import { Alert } from 'react-native';
 export const useImagePicker = () => {
   const [loading, setLoading] = useState(false);
 
-  /**
-   * Solicita permisos de cámara y galería
-   */
   const requestPermissions = async () => {
     const cameraPermission = await ImagePicker.requestCameraPermissionsAsync();
     const galleryPermission = await ImagePicker.requestMediaLibraryPermissionsAsync();
@@ -24,9 +21,6 @@ export const useImagePicker = () => {
     return true;
   };
 
-  /**
-   * Abrir cámara para tomar foto
-   */
   const pickFromCamera = async (): Promise<string | null> => {
     try {
       setLoading(true);
@@ -55,9 +49,6 @@ export const useImagePicker = () => {
     }
   };
 
-  /**
-   * Seleccionar imagen de galería
-   */
   const pickFromGallery = async (): Promise<string | null> => {
     try {
       setLoading(true);

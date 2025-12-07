@@ -2,10 +2,10 @@ import React from 'react';
 import { FlatList, StyleSheet } from 'react-native';
 import { useRouter } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useRecipesStore } from '@/stores/useRecipesStore';
-import { useTheme } from '@/hooks/useTheme';
-import { RecipeCard } from '@/components/recipes/RecipeCard';
-import { EmptyState } from '@/components/ui/EmptyState';
+import { useRecipesStore } from '../../src/stores/useRecipesStore';
+import { useTheme } from '../../src/hooks/useTheme';
+import { RecipeCard } from '../../src/components/recipes/RecipeCard';
+import { EmptyState } from '../../src/components/ui/EmptyState';
 
 export default function FavoritesScreen() {
   const router = useRouter();

@@ -2,11 +2,11 @@ import { useState } from 'react';
 import { View, Text, StyleSheet, KeyboardAvoidingView, Platform, Alert } from 'react-native';
 import { useRouter } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useUserStore } from '@/stores/useUserStore';
-import { useTheme } from '@/hooks/useTheme';
-import { Input } from '@/components/ui/Input';
-import { Button } from '@/components/ui/Button';
-import { MathCaptcha } from '@/components/login/MathCaptcha';
+import { useUserStore } from '../src/stores/useUserStore';
+import { useTheme } from '../src/hooks/useTheme';
+import { Input } from '../src/components/ui/Input';
+import { Button } from '../src/components/ui/Button';
+import { MathCaptcha } from '../src/components/login/MathCaptcha';
 
 export default function LoginScreen() {
   const router = useRouter();
@@ -38,7 +38,6 @@ export default function LoginScreen() {
         style={styles.content}
       >
         <View style={styles.header}>
-          <Text style={styles.emoji}>🍳</Text>
           <Text style={[styles.title, { color: colors.text }]}>
             Bienvenido
           </Text>

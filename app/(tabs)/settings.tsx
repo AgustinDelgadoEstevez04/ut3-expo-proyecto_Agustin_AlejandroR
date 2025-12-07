@@ -2,13 +2,13 @@ import React from 'react';
 import { View, Text, ScrollView, StyleSheet, Switch, Pressable, Alert } from 'react-native';
 import { useRouter } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useSettingsStore } from '@/stores/useSettingsStore';
-import { useRecipesStore } from '@/stores/useRecipesStore';
-import { useUserStore } from '@/stores/useUserStore';
-import { useTheme } from '@/hooks/useTheme';
-import { Card } from '@/components/ui/Card';
-import { Button } from '@/components/ui/Button';
-import { recipeUtils } from '@/utils/recipeUtils';
+import { useSettingsStore } from '../../src/stores/useSettingsStore';
+import { useRecipesStore } from '../../src/stores/useRecipesStore';
+import { useUserStore } from '../../src/stores/useUserStore';
+import { useTheme } from '../../src/hooks/useTheme';
+import { Card } from '../../src/components/ui/Card';
+import { Button } from '../../src/components/ui/Button';
+import { recipeUtils } from '../../src/utils/recipeUtils';
 
 export default function SettingsScreen() {
   const router = useRouter();

@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
-import { shakeDetector } from '@/services/sensors/shakeDetector';
-import { useSettingsStore } from '@/stores/useSettingsStore';
+import { shakeDetector } from '../services/sensors/shakeDetector';
+import { useSettingsStore } from '../stores/useSettingsStore';
 
 export const useShakeDetector = (onShake: () => void) => {
   const { enableShake } = useSettingsStore();
@@ -8,10 +8,8 @@ export const useShakeDetector = (onShake: () => void) => {
   useEffect(() => {
     if (!enableShake) return;
 
-    // Iniciar detector
     shakeDetector.start(onShake);
 
-    // Cleanup: detener detector
     return () => {
       shakeDetector.stop();
     };

@@ -1,5 +1,5 @@
 import { client } from './client';
-import { Recipe } from '@/types/recipe';
+import { Recipe } from '../../types/recipe';
 
 interface SpoonacularRecipe {
   id: number;
@@ -19,11 +19,7 @@ interface SpoonacularRecipe {
   }>;
 }
 
-/**
- * Mapea una receta de Spoonacular a nuestro modelo
- */
 function mapSpoonacularToRecipe(data: SpoonacularRecipe): Omit<Recipe, 'isFavorite' | 'isOwn' | 'createdAt'> {
-  // Limpiar HTML del summary
   const cleanDescription = data.summary?.replace(/<[^>]*>/g, '').substring(0, 200) || 'Receta deliciosa importada desde Spoonacular';
 
   return {
@@ -38,13 +34,7 @@ function mapSpoonacularToRecipe(data: SpoonacularRecipe): Omit<Recipe, 'isFavori
   };
 }
 
-/**
- * API de recetas de Spoonacular
- */
 export const recipesApi = {
-  /**
-   * Obtiene una receta aleatoria
-   */
   async getRandomRecipe(): Promise<Recipe> {
     try {
       const response = await client.get<{ recipes: SpoonacularRecipe[] }>('/recipes/random', {
@@ -68,9 +58,6 @@ export const recipesApi = {
     }
   },
 
-  /**
-   * Busca recetas por query
-   */
   async searchRecipes(query: string, limit: number = 10): Promise<Recipe[]> {
     try {
       const response = await client.get<{ results: SpoonacularRecipe[] }>('/recipes/complexSearch', {

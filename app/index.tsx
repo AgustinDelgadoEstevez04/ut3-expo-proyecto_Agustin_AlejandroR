@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { View, Text, StyleSheet, ActivityIndicator } from 'react-native';
 import { useRouter } from 'expo-router';
-import { useUserStore } from '@/stores/useUserStore';
-import { useTheme } from '@/hooks/useTheme';
+import { useUserStore } from '../src/stores/useUserStore';
+import { useTheme } from '../src/hooks/useTheme';
 
 export default function IndexScreen() {
   const router = useRouter();
@@ -10,7 +10,6 @@ export default function IndexScreen() {
   const { colors } = useTheme();
 
   useEffect(() => {
-    // Simular carga inicial
     const timer = setTimeout(() => {
       if (isAuthenticated) {
         router.replace('/(tabs)/home');

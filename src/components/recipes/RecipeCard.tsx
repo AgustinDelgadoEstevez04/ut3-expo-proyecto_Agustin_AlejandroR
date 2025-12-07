@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, Text, Image, Pressable, StyleSheet } from 'react-native';
-import { Recipe } from '@/types/recipe';
-import { useTheme } from '@/hooks/useTheme';
-import { recipeUtils } from '@/utils/recipeUtils';
+import { Recipe } from '../../types/recipe';
+import { useTheme } from '../../hooks/useTheme';
+import { recipeUtils } from '../../utils/recipeUtils';
 
 interface RecipeCardProps {
   recipe: Recipe;

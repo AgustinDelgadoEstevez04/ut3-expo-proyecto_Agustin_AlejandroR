@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { View, FlatList, StyleSheet, Alert } from 'react-native';
 import { useRouter } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useRecipesStore } from '@/stores/useRecipesStore';
-import { useSettingsStore } from '@/stores/useSettingsStore';
-import { useTheme } from '@/hooks/useTheme';
-import { useShakeDetector } from '@/hooks/useShakeDetector';
-import { recipeUtils } from '@/utils/recipeUtils';
-import { RecipeCard } from '@/components/recipes/RecipeCard';
-import { FAB } from '@/components/ui/FAB';
-import { EmptyState } from '@/components/ui/EmptyState';
-import { LoadingSpinner } from '@/components/ui/LoadingSpinner';
+import { useRecipesStore } from '../../src/stores/useRecipesStore';
+import { useSettingsStore } from '../../src/stores/useSettingsStore';
+import { useTheme } from '../../src/hooks/useTheme';
+import { useShakeDetector } from '../../src/hooks/useShakeDetector';
+import { recipeUtils } from '../../src/utils/recipeUtils';
+import { RecipeCard } from '../../src/components/recipes/RecipeCard';
+import { FAB } from '../../src/components/ui/FAB';
+import { EmptyState } from '../../src/components/ui/EmptyState';
+import { LoadingSpinner } from '../../src/components/ui/LoadingSpinner';
 
 export default function HomeScreen() {
   const router = useRouter();
@@ -25,10 +25,8 @@ export default function HomeScreen() {
 
   const { sortOrder, showFavoritesFirst } = useSettingsStore();
 
-  // Ordenar recetas
   let sortedRecipes = recipeUtils.sort(recipes, sortOrder);
 
-  // Favoritas primero si está activado
   if (showFavoritesFirst) {
     sortedRecipes = [
       ...sortedRecipes.filter(r => r.isFavorite),
@@ -36,7 +34,6 @@ export default function HomeScreen() {
     ];
   }
 
-  // Detector de shake
   useShakeDetector(() => {
     handleImportRandom();
   });
@@ -56,11 +53,11 @@ export default function HomeScreen() {
       'Elige una opción',
       [
         {
-          text: 'Crear Nueva',
-          onPress: () => router.push('/recipe/new'),
+          text: '✍️ Crear Manualmente',
+          onPress: () => router.push('/recipe/create'),
         },
         {
-          text: 'Importar desde API',
+          text: '🌐 Importar desde API',
           onPress: handleImportRandom,
         },
         {

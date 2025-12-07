@@ -1,9 +1,6 @@
 import axios, { AxiosInstance, AxiosError } from 'axios';
-import { ENV } from '@/config/env';
+import { ENV } from '../../config/env';
 
-/**
- * Cliente HTTP configurado con Axios
- */
 class ApiClient {
   private instance: AxiosInstance;
 
@@ -20,10 +17,8 @@ class ApiClient {
   }
 
   private setupInterceptors() {
-    // Request interceptor
     this.instance.interceptors.request.use(
       (config) => {
-        // Agregar API key a todos los requests
         config.params = {
           ...config.params,
           apiKey: ENV.SPOONACULAR_API_KEY,
@@ -33,15 +28,12 @@ class ApiClient {
       (error) => Promise.reject(error)
     );
 
-    // Response interceptor
     this.instance.interceptors.response.use(
       (response) => response,
       (error: AxiosError) => {
         if (error.response) {
-          // Error con respuesta del servidor
           console.error('API Error:', error.response.status, error.response.data);
         } else if (error.request) {
-          // Error de red
           console.error('Network Error:', error.message);
         }
         return Promise.reject(error);

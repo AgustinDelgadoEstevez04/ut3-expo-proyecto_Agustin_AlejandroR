@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { View, Text, Image, Pressable, StyleSheet, Alert } from 'react-native';
-import { useTheme } from '@/hooks/useTheme';
-import { useImagePicker } from '@/hooks/useImagePicker';
+import { useTheme } from '../../hooks/useTheme';
+import { useImagePicker } from '../../hooks/useImagePicker';
 
 interface ImageSelectorProps {
   value: string | null;

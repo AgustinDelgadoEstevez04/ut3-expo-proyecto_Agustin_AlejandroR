@@ -7,7 +7,7 @@ import { useSettingsStore } from '../../src/stores/useSettingsStore';
 import { useTheme } from '../../src/hooks/useTheme';
 import { useShakeDetector } from '../../src/hooks/useShakeDetector';
 import { recipeUtils } from '../../src/utils/recipeUtils';
-import { RecipeCard } from '../../src/components/recipes/RecipeCard';
+import { AnimatedRecipeCard } from '../../src/components/recipes/AnimatedRecipeCard';
 import { FAB } from '../../src/components/ui/FAB';
 import { EmptyState } from '../../src/components/ui/EmptyState';
 import { LoadingSpinner } from '../../src/components/ui/LoadingSpinner';
@@ -75,11 +75,12 @@ export default function HomeScreen() {
       <FlatList
         data={sortedRecipes}
         keyExtractor={(item) => item.id}
-        renderItem={({ item }) => (
-          <RecipeCard
+        renderItem={({ item, index }) => (
+          <AnimatedRecipeCard
             recipe={item}
             onPress={() => router.push(`/recipe/${item.id}`)}
             onToggleFavorite={() => toggleFavorite(item.id)}
+            index={index}
           />
         )}
         contentContainerStyle={styles.list}

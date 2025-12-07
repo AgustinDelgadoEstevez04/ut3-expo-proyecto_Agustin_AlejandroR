@@ -4,7 +4,7 @@ import { useRouter } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRecipesStore } from '../../src/stores/useRecipesStore';
 import { useTheme } from '../../src/hooks/useTheme';
-import { RecipeCard } from '../../src/components/recipes/RecipeCard';
+import { AnimatedRecipeCard } from '../../src/components/recipes/AnimatedRecipeCard';
 import { EmptyState } from '../../src/components/ui/EmptyState';
 
 export default function FavoritesScreen() {
@@ -19,11 +19,12 @@ export default function FavoritesScreen() {
       <FlatList
         data={favoriteRecipes}
         keyExtractor={(item) => item.id}
-        renderItem={({ item }) => (
-          <RecipeCard
+        renderItem={({ item, index }) => (
+          <AnimatedRecipeCard
             recipe={item}
             onPress={() => router.push(`/recipe/${item.id}`)}
             onToggleFavorite={() => toggleFavorite(item.id)}
+            index={index}
           />
         )}
         contentContainerStyle={styles.list}
